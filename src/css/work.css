@@ -1,0 +1,32 @@
+.size-pic {
+
+    max-width: 100%;
+ 
+    /* max-width: 60vh; */
+    display: flex;
+    /* position: absolute; */
+    /* background-color: lawngreen; */
+}
+
+/* .custom-tag {
+    width: 100% ;
+    height: 70% ;
+    background: black;
+    padding: 100px;
+} */
+.bgc{
+    background-color: rgb(255, 255, 255);
+    
+}
+.bgc1{
+    background-color: rgb(241, 241, 241);
+    
+}
+.mar{
+    margin-top: -50px;
+}
+pre {
+    display: block;
+    margin: 1em 0;
+    width: 1400px;
+  } 

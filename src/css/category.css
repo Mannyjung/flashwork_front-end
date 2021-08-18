@@ -1,0 +1,90 @@
+#btn-addcate{
+    background-color: #3836d3c2;
+    color: rgb(255, 255, 255);
+    border: none;
+   
+    margin-left:10px;
+    border-radius: 5px;
+}
+
+#btn-editcate{
+    background-color: #1888e4;
+    color: black;
+    border: none;
+   
+    margin-left:10px;
+    border-radius: 5px;
+}
+#btn-macate{
+    background-color: #96ff89;
+    color: black;
+    border: none;
+   
+    margin-left:10px;
+    border-radius: 5px;
+}
+#btn-deletecate{
+    background-color: #f30909;
+    color: rgb(255, 255, 255);
+    border: none;
+   
+    margin-left:10px;
+    border-radius: 5px;
+}
+
+#size-img {
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-x;
+    min-width: 20vw;
+    height: 30vh;
+}
+
+.bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-x;
+    min-width: 20vw;
+    height: 30vh;
+}
+.bg:hover{
+    color: white; text-shadow: black 0.3em 0.3em 1em;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-x;
+    min-width: 20vw;
+    height: 30vh;
+}
+
+#posi {
+margin-top:10vh;
+    font-weight: bold;
+}
+#posi:hover {
+    margin-top:10vh;
+        font-weight: bold;
+    }
+
+#subcard{
+    border: none;
+    box-shadow: 0px 1px 3px 1px #8b8c8da2;
+    justify-items: center ;
+}
+
+#setsubText{
+    margin: auto;
+line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#setsubText2{
+   
+    height: 5px;
+   
+    align-items: center;
+    justify-content: center;
+}

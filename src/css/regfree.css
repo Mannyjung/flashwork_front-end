@@ -1,0 +1,64 @@
+.bgtext {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.bgtext2 {
+    background-color: rgb(24, 23, 23, 0.6);
+}
+
+.text-op {
+    opacity: 1;
+}
+
+.cb {
+    color: black;
+}
+
+.bgButton {
+    background-color: #FB8C00;
+}
+
+.bgButton:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+
+#bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.err {
+  float: right;
+    font-size: 16px;
+    color: rgb(255, 140, 140);
+  
+}
+.mx-auto{
+    margin-top: 20%;
+    font-size: 24px;
+}
+.box-regis{
+    margin-top: 10%;
+}
+.cardEmp{
+    margin-top: 10%;
+}
+.typingeffect{
+    font-size:32px;
+    color: orange;
+}
+h3{
+    font-size: 18px;
+}
+h2{
+    font-size: 16px;
+}
+.titleFree{
+    font-size:32px;
+}

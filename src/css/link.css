@@ -1,0 +1,32 @@
+div #Emp a {
+    color: rgb(253, 253, 253);
+    font-size: 20px;
+}
+
+div #Emp a:hover {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
+
+div #Emp a img {
+    opacity: 0.5;
+    height: auto;
+}
+
+div #Fl a img {
+    height: auto;
+    opacity: 0.5;
+}
+
+div #Fl a {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+div #Fl a:hover {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+}
+a{
+    color: #ffffff;
+    font-size: 22px;
+}

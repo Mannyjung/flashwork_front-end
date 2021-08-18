@@ -1,0 +1,12 @@
+.bod {
+    display: block;
+    min-height: 100%;
+    /* real browsers */
+    height: auto !important;
+    /* real browsers */
+    height: 100%;
+    /* IE6 bug */
+    margin-bottom: -333px;
+    /* กำหนด margin-bottom ให้ติดลบเท่ากับความสูงของ footer */
+    background-color: lawngreen;
+}

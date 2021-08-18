@@ -1,0 +1,55 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+  
+  .user {
+    border: 2px solid rgb(255, 134, 35);
+    border-radius: 50%;
+    background-color: #ffb3b7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+  }
+  
+  .paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 50px;
+    border: 3px solid rgb(255, 134, 35);
+    color: #000000;
+    cursor: pointer;
+    font-size: small;
+
+  }
+  
+  .paginationBttns a:hover {
+    color: white;
+    background-color: #eec578;
+  }
+  
+  .paginationActive a {
+    color: white;
+    background-color: #eec578;
+  }
+  
+  .paginationDisabled a {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+  }

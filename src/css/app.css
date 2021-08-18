@@ -1,0 +1,15 @@
+html, body {
+    /* background-color: rgb(240, 240, 241); */
+    /* margin-top: 40px; */
+   
+}
+
+* {
+    font-family: 'Prompt', sans-serif;
+}
+
+.line-size {
+    border-width: 10px;
+    border-color: orangered;
+}
+

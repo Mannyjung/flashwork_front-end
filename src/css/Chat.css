@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 90%;
+}
+
+#black {
+    background-color: #f0f0f0;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    height          : 100%;
+}
+
+.__main {
+    max-width       : 90%;
+    margin          : auto;
+    background-color: #fff;
+    min-height      : 80vh;
+    width           : 90%;
+    border-radius   : 20px;
+    padding         : 40px;
+    display         : flex;
+    padding-left    : 0;
+}
