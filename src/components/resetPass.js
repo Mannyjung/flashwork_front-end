@@ -28,7 +28,7 @@ const ModalExample = (props) => {
     };
     const toggle = () => setModal(!modal);
     const sendmail = () => {
-        axios.post("http://localhost/flashwork_api/public/forgetpassword", email)
+        axios.post("https://flashworkbackend.xyz/flashwork_api/public/forgetpassword", email)
             .then(res => {
                 if (res.data.messages === "success") {
                     Swal.fire(
@@ -39,7 +39,6 @@ const ModalExample = (props) => {
                             setemail(getemail)
                             window.location.reload();
                         });
-
 
 
                 }
