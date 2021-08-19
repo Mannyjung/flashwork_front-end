@@ -5,14 +5,13 @@ const ProfileEmpforadmin = (props) => {
 
     if (localStorage.getItem('status') !== 'Admin') {
 
-
         window.location.assign("/login2")
-
 
     }
     else {
         return (
             <>
+                
                 <Profile id={props.match.params.id} />
             </>
         )
