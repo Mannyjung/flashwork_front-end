@@ -128,15 +128,15 @@ const Posttitle = () => {
         // initialValues: initProduct,
         initialValues: Workdetail,
         validationSchema: yup.object().shape({
-            // Work_name: yup.string().required("กรุณากรอกข้อมูลชื่องาน"),
-            // Work_detail: yup.string().required("กรุณากรอกรายละเอียดงาน"),
-            // Pk_name: yup.string().required("กรุณากรอกข้อมูลชื่อแพ็คเกจ"),
-            // Pk_detail: yup.string().required("กรุณากรอกละเอียดแพ็คเกจ"),
-            // timeperiod: yup.string().required("กรุณากรอกระยะเวลาทำงาน"),
-            // Pk_price: yup
-            //     .number("กรอกเป็นตัวเลขเท่านั้น")
-            //     .positive("ต้องมีค่าเป็นบวก")
-            //     .required("กรุณากรอกราคาแพ็คเกจ"),
+            Work_name: yup.string().required("กรุณากรอกข้อมูลชื่องาน"),
+            Work_detail: yup.string().required("กรุณากรอกรายละเอียดงาน"),
+            Pk_name: yup.string().required("กรุณากรอกข้อมูลชื่อแพ็คเกจ"),
+            Pk_detail: yup.string().required("กรุณากรอกละเอียดแพ็คเกจ"),
+            timeperiod: yup.string().required("กรุณากรอกระยะเวลาทำงาน"),
+            Pk_price: yup
+                .number("กรอกเป็นตัวเลขเท่านั้น")
+                .positive("ต้องมีค่าเป็นบวก")
+                .required("กรุณากรอกราคาแพ็คเกจ"),
         }),
         onSubmit: async (values) => {
             if (values.file) {
