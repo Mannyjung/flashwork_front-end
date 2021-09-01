@@ -311,7 +311,7 @@ const Personal = ({ id }) => {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="fname">เบอร์โทรศัพท์</Label>
-                                                <Input type="number" name="std_phone" id="std_phone" onChange={handleInputChange} value={student.std_phone} placeholder="กรอกเบอร์โทรศัพท์" />
+                                                <Input type="text" name="std_phone" id="std_phone" onChange={handleInputChange} value={student.std_phone} placeholder="กรอกเบอร์โทรศัพท์" />
                                             </FormGroup>
                                             <span className="err" name="err" id="chkstd_phone"></span>
                                             <p></p>
@@ -336,7 +336,7 @@ const Personal = ({ id }) => {
 
                                     </FormGroup>
 
-                                    <Button className={classes.button} size="lg" block onClick={saveProfile}>แก้ไขข้อมูลส่วนตัว</Button>
+                                    <Button style={{marginTop:"2%"}} className={classes.button} size="lg" block onClick={saveProfile}>แก้ไขข้อมูลส่วนตัว</Button>
                                 </Form>
                             </Container>
                         </Card>

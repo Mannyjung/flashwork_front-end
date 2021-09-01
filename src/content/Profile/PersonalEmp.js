@@ -268,7 +268,9 @@ const PersonalEmp = ({ username }) => {
                                             <FormGroup>
                                                 <Label for="email">อีเมลล์</Label>
                                                 <Input type="email" name="em_email" id="em_email" onChange={handleInputChange} value={employer.em_email} readOnly />
-                                            </FormGroup>
+                                                <span className="err" name="err" id="chk-em_lname"></span>
+                                            <p></p>
+                                           </FormGroup>
                                         </Col>
 
                                     </Row>
@@ -277,27 +279,34 @@ const PersonalEmp = ({ username }) => {
                                             <FormGroup>
                                                 <Label for="fname">ชื่อ</Label>
                                                 <Input type="text" name="em_fname" id="em_fname" onChange={handleInputChange} value={employer.em_fname} />
+                                         
+                                                <span className="err" name="err" id="chk-em_fname"></span>
+                                        
                                             </FormGroup>
-                                            <span className="err" name="err" id="chk-em_fname"></span>
                                             <p></p>
+                                         
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="em_lname">นามสกุล</Label>
                                                 <Input type="text" name="em_lname" id="em_lname" onChange={handleInputChange} value={employer.em_lname} />
+                                                <span className="err" name="err" id="chk-em_lname"></span>
+                                        
                                             </FormGroup>
-                                            <span className="err" name="err" id="chk-em_lname"></span>
                                             <p></p>
+                                            
                                         </Col>
                                     </Row>
                                     <Row form>
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="fname">เบอร์โทรศัพท์</Label>
-                                                <Input type="number" name="em_phone" id="em_phone" onChange={handleInputChange} value={employer.em_phone} placeholder="กรอกเบอร์โทรศัพท์" />
+                                                <Input type="text" name="em_phone" id="em_phone" onChange={handleInputChange} value={employer.em_phone} placeholder="กรอกเบอร์โทรศัพท์" />
+                                                <span className="err" name="err" id="chk-em_phone"></span>
+                                           
                                             </FormGroup>
-                                            <span className="err" name="err" id="chk-em_phone"></span>
                                             <p></p>
+                                          
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -308,7 +317,7 @@ const PersonalEmp = ({ username }) => {
 
                                     </Row>
 
-                                    <Button className={classes.button} size="lg" block onClick={saveProfile}>แก้ไขข้อมูลส่วนตัว</Button>
+                                    <Button style={{marginTop:"2%"}} className={classes.button} size="lg" block onClick={saveProfile}>แก้ไขข้อมูลส่วนตัว</Button>
                                 </Form>
                             </Container>
                         </Card>
