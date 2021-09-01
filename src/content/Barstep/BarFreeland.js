@@ -68,7 +68,7 @@ const BarFreeland = () => {
                 <Link href="/freeReport">
                     <ListItem button>
                         <ListItemIcon><ReportOutlined style={{ color: 'orange' }} /></ListItemIcon>
-                        <ListItemText primary="รายงาน" />
+                        <ListItemText primary="คำร้องเรียน" />
                     </ListItem>
                 </Link>
             </List>

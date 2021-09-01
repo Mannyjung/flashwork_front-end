@@ -26,6 +26,23 @@ const Modals = (props) => {
         setShowPackagebyid({ ...showPackagebyid, [name]: value })
     };
     const EditPack = () => {
+        let err = ""
+        if (!showPackagebyid.pk_name) {
+            err = "กรุณากรอกชื่องาน"
+            document.getElementById('chk-pk_name').innerHTML = err;
+            return false;
+        }
+        if (!showPackagebyid.pk_detail) {
+            err = "กรุณากรอกรายละเอียดแพ็คเก็จ"
+            document.getElementById('chk-pk_detail').innerHTML = err;
+            return false;
+        }
+        if (!showPackagebyid.pk_price) {
+            err = "กรุณากรอกราคา"
+            document.getElementById('chk-pk_price').innerHTML = err;
+            return false;
+        }
+
         var data = {
             pk_name: showPackagebyid.pk_name,
             pk_detail: showPackagebyid.pk_detail,
@@ -62,7 +79,10 @@ const Modals = (props) => {
                             value={showPackagebyid.pk_name}
                             onChange={handleInputChange}
                         />
+                          <span className="err" name="err" id="chk-pk_name"></span>
+                        <p></p>
                         <br />
+                      
                         <Label>รายละเอียด</Label>
                         <Input
                             type="textarea"
@@ -70,6 +90,8 @@ const Modals = (props) => {
                             value={showPackagebyid.pk_detail}
                             onChange={handleInputChange}
                         />
+                          <span className="err" name="err" id="chk-pk_detail"></span>
+                        <p></p>
                         <br />
                         <Label>ราคา</Label>
                         <Input
@@ -77,7 +99,10 @@ const Modals = (props) => {
                             name="pk_price"
                             value={showPackagebyid.pk_price}
                             onChange={handleInputChange}
+
                         />
+                         <span className="err" name="err" id="chk-pk_price"></span>
+                        <p></p>
                         <br />
                         <Label for="exampleEmail">ระยะเวลาในการทำงานโดยประมาณ</Label>
                         <Input type="select" name="pk_time_period" id="timeperiod" onChange={handleInputChange} value={showPackagebyid.pk_time_period}>

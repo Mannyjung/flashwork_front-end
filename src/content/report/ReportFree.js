@@ -25,6 +25,24 @@ const ReportFree = () => {
         setReport({ ...report, [name]: value })
     };
     const saveReport = () => {
+
+        let err = ""
+        if (!report.rp_title) {
+            err = "กรุณากรอกหัวข้อคำร้องเรียน"
+            document.getElementById('chk-rp_title').innerHTML = err;
+            return false;
+        }
+        if (!report.rp_detail) {
+            err = "กรุณากรอกรายละเอียด"
+            document.getElementById('chk-rp_detail').innerHTML = err;
+            return false;
+        }
+        if (!report.rp_importance) {
+            err = "กรุณาเลือกระดับความสำคัญ"
+            document.getElementById('chk-rp_importance').innerHTML = err;
+            return false;
+        }
+
         var data = {
             rp_user_id: localStorage.getItem('User_id'),
             rp_title: report.rp_title,
@@ -50,17 +68,10 @@ const ReportFree = () => {
                           right top
                           no-repeat
                         ` })
-                    // Swal.fire({
-                    //     title: 'Sweet!',
-                    //     text: 'Modal with a custom image.',
-                    //     imageUrl: '/image/cat2.gif',
-                    //     imageWidth: 400,
-                    //     imageHeight: 200,
-                    //     imageAlt: 'Custom image',
-                    //   })
                     setReport(initReport);
-                    window.location.reload();
                 }
+            }).then(() => {
+                window.location.reload();
             })
             .catch((error) => {
                 console.log(error);
@@ -78,35 +89,42 @@ const ReportFree = () => {
 
                         <CardBody>
                             <Row form>
-                               
-                                    <Col md={6}>
-                                         <FormGroup>
+
+                                <Col md={6}>
+                                    <FormGroup>
                                         <Label for="rp_title" style={{ fontSize: "26px" }}>หัวข้อคำร้องเรียน</Label>
                                         <Input type="rp_title" name="rp_title" id="rp_title" placeholder="หัวข้อการรายงาน" onChange={handleInputChange} required />
-                                  </FormGroup>  
-                                  </Col>
+                                        <span className="err" name="err" id="chk-rp_title"></span>
+                                        <p></p>
+                                    </FormGroup>
+
+                                </Col>
 
 
-                                    <Col md={6}>
-                                        <FormGroup>
-                                            <Label for="exampleZip" style={{ fontSize: "26px" }}>ระดับความสำคัญ</Label>
-                                            <Input type="select" name="rp_importance" onChange={handleInputChange}>
-                                                <option selected  >เลือกระดับความสำคัญ</option>
-                                                <option value="1" >น้อยที่สุด</option>
-                                                <option value="2" >น้อย</option>
-                                                <option value="3">ปานกลาง</option>
-                                                <option value="4">มาก</option>
-                                                <option value="5">มากที่สุด</option>
-                                            </Input>
-                                        </FormGroup>
-                                    </Col>
+                                <Col md={6}>
+                                    <FormGroup>
+                                        <Label for="exampleZip" style={{ fontSize: "26px" }}>ระดับความสำคัญ</Label>
+                                        <Input type="select" name="rp_importance" onChange={handleInputChange}>
+                                            <option selected  >เลือกระดับความสำคัญ</option>
+                                            <option value="1" >น้อยที่สุด</option>
+                                            <option value="2" >น้อย</option>
+                                            <option value="3">ปานกลาง</option>
+                                            <option value="4">มาก</option>
+                                            <option value="5">มากที่สุด</option>
+                                        </Input>
+                                        <span className="err" name="err" id="chk-rp_importance"></span>
+                                        <p></p>
+                                    </FormGroup>
+                                </Col>
 
-                                
+
                             </Row>
 
                             <FormGroup>
                                 <Label for="exampleAddress" style={{ fontSize: "26px" }}>รายละเอียด</Label>
                                 <Input type="textarea" name="rp_detail" id="exampleText" onChange={handleInputChange} />
+                                <span className="err" name="err" id="chk-rp_detail"></span>
+                                <p></p>
                             </FormGroup>
 
 

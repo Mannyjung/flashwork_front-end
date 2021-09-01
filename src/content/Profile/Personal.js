@@ -74,6 +74,39 @@ const Personal = ({ id }) => {
     };
 
     const saveProfile = () => {
+        let err = ""
+        if (!student.std_fname) {
+            err = "กรุณากรอกชื่อผู้ใช้"
+            document.getElementById('chkstd_fname').innerHTML = err;
+            return false;
+        }
+        if (/[!@#$%^&*()_+\-={};':"|,.<>?]/.test(student.std_fname)) {
+            err = "ห้ามใช้อักขระพิเศษในชื่อ"
+            document.getElementById('chkstd_fname').innerHTML = err;
+            return false;
+        }
+        if (!student.std_lname) {
+            err = "กรุณากรอกนามสกุล"
+            document.getElementById('chkstd_lname').innerHTML = err
+            return false;
+        }
+        if (/[!@#$%^&*()_+\-={};':"|,.<>?]/.test(student.std_lname)) {
+            err = "ห้ามใช้อักขระพิเศษในนามสกุล"
+            document.getElementById('chkstd_lname').innerHTML = err;
+            return false;
+        }
+
+        if (!student.std_phone) {
+            err = "กรุณากรอกเบอร์"
+            document.getElementById('chkstd_phone').innerHTML = err
+            return false;
+        }
+        if (student.std_phone.length !== 10) {
+            err = "กรุณากรอกให้ครบ 10 ตัว"
+            document.getElementById('chkstd_phone').innerHTML = err
+            return false;
+        }
+
 
         var data = {
             std_fname: student.std_fname,
@@ -90,6 +123,8 @@ const Personal = ({ id }) => {
                     'success'
                 )
 
+            }).then(() => {
+                window.location.reload()
             })
             .catch((error) => {
                 console.log(error);
@@ -181,10 +216,10 @@ const Personal = ({ id }) => {
 
             <Container style={{ marginTop: "3%", marginLeft: "15%" }}>
                 <h1>โปรไฟล์</h1>
-            {/* </Container> */}
-            {/* {student.map((std_data) => {
+                {/* </Container> */}
+                {/* {student.map((std_data) => {
                 return ( */}
-            {/* <Container style={{ marginTop: "3%" }}> */}
+                {/* <Container style={{ marginTop: "3%" }}> */}
 
                 <Row>
                     <Col md={4}>
@@ -196,44 +231,44 @@ const Personal = ({ id }) => {
                                     title="Contemplative Reptile"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h7"  color="textSecondary" component="p" align="center">
-                                    <p>ชื่อผู้ใช้ :{" "}{student.std_id}</p>
-                                    <p>ชื่อ-นามสกุล :{" "}{student.std_fname}{" "}{student.std_lname}</p>
-                                    <p>อีเมลล์ :{" "}{student.std_email}</p>
-                                    <p>เบอร์โทรศัพท์ :{" "}{student.std_phone}</p>
-                                    <p>{student.major_name}{" "}{student.fac_name} </p>
+                                    <Typography gutterBottom variant="h7" color="textSecondary" component="p" align="center">
+                                        <p>ชื่อผู้ใช้ :{" "}{student.std_id}</p>
+                                        <p>ชื่อ-นามสกุล :{" "}{student.std_fname}{" "}{student.std_lname}</p>
+                                        <p>อีเมลล์ :{" "}{student.std_email}</p>
+                                        <p>เบอร์โทรศัพท์ :{" "}{student.std_phone}</p>
+                                        <p>{student.major_name}{" "}{student.fac_name} </p>
                                     </Typography>
 
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                            <Form onSubmit={formik.handleSubmit}>
-                                <FormGroup>
-                                    <Row>
-                                        <Col>
-                                            <Input
-                                                type="file"
-                                                name="std_image"
-                                                id="std_image"
-                                                onChange={(event) => {
-                                                    formik.setFieldValue("file", event.currentTarget.files[0]);
-                                                }}
+                                <Form onSubmit={formik.handleSubmit}>
+                                    <FormGroup>
+                                        <Row>
+                                            <Col>
+                                                <Input
+                                                    type="file"
+                                                    name="std_image"
+                                                    id="std_image"
+                                                    onChange={(event) => {
+                                                        formik.setFieldValue("file", event.currentTarget.files[0]);
+                                                    }}
 
-                                            />
-                                            {formik.errors.std_image && formik.touched.std_image && (
-                                                <p style={{ color: "red" }}>{formik.errors.std_image}</p>
-                                            )}
-                                        </Col>
-                                        <Col className="">
-                                            <Button type="submit" className="btn btn-success float-right" >เปลี่ยนโปรไฟล์</Button>
-                                        </Col>
-                                    </Row>
-                                </FormGroup>
-                            </Form>
+                                                />
+                                                {formik.errors.std_image && formik.touched.std_image && (
+                                                    <p style={{ color: "red" }}>{formik.errors.std_image}</p>
+                                                )}
+                                            </Col>
+                                            <Col className="">
+                                                <Button type="submit" className="btn btn-success float-right" >เปลี่ยนโปรไฟล์</Button>
+                                            </Col>
+                                        </Row>
+                                    </FormGroup>
+                                </Form>
                             </CardActions>
-                        </Card>                
+                        </Card>
                     </Col>
-                    
+
                     <Col md={8}>
                         <Card className={classes.rootNew}>
                             <Container style={{ marginTop: "3%", marginBottom: "3%" }}>
@@ -242,7 +277,8 @@ const Personal = ({ id }) => {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="username">ชื่อผู้ใช้</Label>
-                                                <Input type="text" name="std_id" id="std_id" onChange={handleInputChange} value={student.std_id} placeholder="with a placeholder" readOnly />
+                                                <Input type="text" name="std_id" id="std_id" onChange={handleInputChange} value={student.std_id} readOnly />
+
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -259,12 +295,16 @@ const Personal = ({ id }) => {
                                                 <Label for="fname">ชื่อ</Label>
                                                 <Input type="text" name="std_fname" id="std_fname" onChange={handleInputChange} value={student.std_fname} />
                                             </FormGroup>
+                                            <span className="err" name="err" id="chkstd_fname"></span>
+                                            <p></p>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="std_lname">นามสกุล</Label>
                                                 <Input type="text" name="std_lname" id="std_lname" onChange={handleInputChange} value={student.std_lname} />
                                             </FormGroup>
+                                            <span className="err" name="err" id="chkstd_lname"></span>
+                                            <p></p>
                                         </Col>
                                     </Row>
                                     <Row form>
@@ -273,19 +313,8 @@ const Personal = ({ id }) => {
                                                 <Label for="fname">เบอร์โทรศัพท์</Label>
                                                 <Input type="number" name="std_phone" id="std_phone" onChange={handleInputChange} value={student.std_phone} placeholder="กรอกเบอร์โทรศัพท์" />
                                             </FormGroup>
-
-                                            <FormGroup>
-                                                <Label for="exampleText">คำอธิบาย</Label>
-                                                <Input
-                                                    type="textarea"
-                                                    name="std_description"
-                                                    id="std_description"
-                                                    value={student.std_description}
-                                                    onChange={handleInputChange}
-                                                />
-
-                                            </FormGroup>
-
+                                            <span className="err" name="err" id="chkstd_phone"></span>
+                                            <p></p>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
@@ -294,6 +323,18 @@ const Personal = ({ id }) => {
                                             </FormGroup>
                                         </Col>
                                     </Row>
+
+                                    <FormGroup>
+                                        <Label for="exampleText">คำอธิบาย</Label>
+                                        <Input
+                                            type="textarea"
+                                            name="std_description"
+                                            id="std_description"
+                                            value={student.std_description}
+                                            onChange={handleInputChange}
+                                        />
+
+                                    </FormGroup>
 
                                     <Button className={classes.button} size="lg" block onClick={saveProfile}>แก้ไขข้อมูลส่วนตัว</Button>
                                 </Form>

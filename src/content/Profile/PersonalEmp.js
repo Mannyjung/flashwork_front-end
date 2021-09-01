@@ -68,6 +68,39 @@ const PersonalEmp = ({ username }) => {
         setEmployer({ ...employer, [name]: value })
     };
     const saveProfile = () => {
+
+        let err = ""
+        if (!employer.em_fname) {
+            err = "กรุณากรอกชื่อผู้ใช้"
+            document.getElementById('chk-em_fname').innerHTML = err;
+            return false;
+        }
+        if (/[!@#$%^&*()_+\-={};':"|,.<>?]/.test(employer.em_fname)) {
+            err = "ห้ามใช้อักขระพิเศษในชื่อ"
+            document.getElementById('chk-em_fname').innerHTML = err;
+            return false;
+        }
+        if (!employer.em_lname) {
+            err = "กรุณากรอกนามสกุล"
+            document.getElementById('chk-em_lname').innerHTML = err
+            return false;
+        }
+        if (/[!@#$%^&*()_+\-={};':"|,.<>?]/.test(employer.em_lname)) {
+            err = "ห้ามใช้อักขระพิเศษในนามสกุล"
+            document.getElementById('chk-em_lname').innerHTML = err;
+            return false;
+        }
+        if (!employer.em_phone) {
+            err = "กรุณากรอกเบอร์"
+            document.getElementById('chk-em_phone').innerHTML = err
+            return false;
+        }
+        if (employer.em_phone.length !== 10) {
+            err = "กรุณากรอกให้ครบ 10 ตัว"
+            document.getElementById('chk-em_phone').innerHTML = err
+            return false;
+        }
+
         var data = {
             em_fname: employer.em_fname,
             em_lname: employer.em_lname,
@@ -80,7 +113,10 @@ const PersonalEmp = ({ username }) => {
                     'แก้ไขข้อมูลเสร็จสิ้น?',
                     '',
                     'success'
-                )
+                ).then(function () {
+                    window.location.reload()
+
+                })
 
             })
             .catch((error) => {
@@ -188,30 +224,30 @@ const PersonalEmp = ({ username }) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                
-                            <Form onSubmit={formik.handleSubmit}>
-                                <FormGroup>
-                                    <Row>
-                                        <Col>
-                                            <Input
-                                                type="file"
-                                                name="em_image"
-                                                id="em_image"
-                                                onChange={(event) => {
-                                                    formik.setFieldValue("file", event.currentTarget.files[0]);
-                                                }}
 
-                                            />
-                                            {formik.errors.em_image && formik.touched.em_image && (
-                                                <p style={{ color: "red" }}>{formik.errors.em_image}</p>
-                                            )}
-                                        </Col>
-                                        <Col className="">
-                                            <Button type="submit" className="btn btn-success float-right" >เปลี่ยนโปรไฟล์</Button>
-                                        </Col>
-                                    </Row>
-                                </FormGroup>
-                            </Form>
+                                <Form onSubmit={formik.handleSubmit}>
+                                    <FormGroup>
+                                        <Row>
+                                            <Col>
+                                                <Input
+                                                    type="file"
+                                                    name="em_image"
+                                                    id="em_image"
+                                                    onChange={(event) => {
+                                                        formik.setFieldValue("file", event.currentTarget.files[0]);
+                                                    }}
+
+                                                />
+                                                {formik.errors.em_image && formik.touched.em_image && (
+                                                    <p style={{ color: "red" }}>{formik.errors.em_image}</p>
+                                                )}
+                                            </Col>
+                                            <Col className="">
+                                                <Button type="submit" className="btn btn-success float-right" >เปลี่ยนโปรไฟล์</Button>
+                                            </Col>
+                                        </Row>
+                                    </FormGroup>
+                                </Form>
                             </CardActions>
                         </Card>
                     </Col>
@@ -225,7 +261,7 @@ const PersonalEmp = ({ username }) => {
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="username">ชื่อผู้ใช้</Label>
-                                                <Input type="text" name="em_username" id="em_username" onChange={handleInputChange} value={employer.em_username} placeholder="with a placeholder" readOnly />
+                                                <Input type="text" name="em_username" id="em_username" onChange={handleInputChange} value={employer.em_username} readOnly />
                                             </FormGroup>
                                         </Col>
                                         <Col md={6}>
@@ -242,12 +278,16 @@ const PersonalEmp = ({ username }) => {
                                                 <Label for="fname">ชื่อ</Label>
                                                 <Input type="text" name="em_fname" id="em_fname" onChange={handleInputChange} value={employer.em_fname} />
                                             </FormGroup>
+                                            <span className="err" name="err" id="chk-em_fname"></span>
+                                            <p></p>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>
                                                 <Label for="em_lname">นามสกุล</Label>
                                                 <Input type="text" name="em_lname" id="em_lname" onChange={handleInputChange} value={employer.em_lname} />
                                             </FormGroup>
+                                            <span className="err" name="err" id="chk-em_lname"></span>
+                                            <p></p>
                                         </Col>
                                     </Row>
                                     <Row form>
@@ -256,6 +296,8 @@ const PersonalEmp = ({ username }) => {
                                                 <Label for="fname">เบอร์โทรศัพท์</Label>
                                                 <Input type="number" name="em_phone" id="em_phone" onChange={handleInputChange} value={employer.em_phone} placeholder="กรอกเบอร์โทรศัพท์" />
                                             </FormGroup>
+                                            <span className="err" name="err" id="chk-em_phone"></span>
+                                            <p></p>
                                         </Col>
                                         <Col md={6}>
                                             <FormGroup>

@@ -4,8 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -130,10 +130,7 @@ const LoginV2 = () => {
                                     autoComplete="current-password"
                                     onChange={(e) => handleChange(e)}
                                 />
-                                <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
-                                    label="จดจำฉัน"
-                                />
+                               
                                 <Button
                                     fullWidth
                                     variant="contained"
@@ -149,7 +146,7 @@ const LoginV2 = () => {
                                         <RePass />
                                     </Grid>
                                     <Grid item>
-                                        <Link href="#" variant="body2">
+                                        <Link href="/register" style={{fontSize:"16px"}} >
                                             {"หากไม่มีบัญชี ลงทะเบียน"}
                                         </Link>
                                     </Grid>

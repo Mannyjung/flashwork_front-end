@@ -27,6 +27,28 @@ const ModalPacks = (props) => {
         setNewpackage({ ...newpackage, [name]: value })
     };
     const saveNewPackage = () => {
+        let err = ""
+        if (!newpackage.pk_name) {
+            err = "กรุณากรอกชื่องาน"
+            document.getElementById('chk-pk_name').innerHTML = err;
+            return false;
+        }
+        if (!newpackage.pk_detail) {
+            err = "กรุณากรอกรายละเอียดแพ็คเก็จ"
+            document.getElementById('chk-pk_detail').innerHTML = err;
+            return false;
+        }
+        if (!newpackage.pk_price) {
+            err = "กรุณากรอกราคา"
+            document.getElementById('chk-pk_price').innerHTML = err;
+            return false;
+        }
+        if (!newpackage.pk_time_period) {
+            err = "กรุณาเลือกระยะเวลา"
+            document.getElementById('chk-pk_time_period').innerHTML = err;
+            return false;
+        }
+
         var data = {
             pk_name: newpackage.pk_name,
             pk_detail: newpackage.pk_detail,
@@ -67,6 +89,8 @@ const ModalPacks = (props) => {
                             onChange={handleInputChange}
 
                         />
+                        <span className="err" name="err" id="chk-pk_name"></span>
+                        <p></p>
                         <br />
                         <Label>รายละเอียด</Label>
                         <Input
@@ -74,17 +98,20 @@ const ModalPacks = (props) => {
                             name="pk_detail"
                             onChange={handleInputChange}
                         />
+                         <span className="err" name="err" id="chk-pk_detail"></span>
+                        <p></p>
                         <br />
                         <Label>ราคา</Label>
                         <Input
                             type="text"
                             name="pk_price"
                             onChange={handleInputChange}
-
                         />
+                          <span className="err" name="err" id="chk-pk_price"></span>
+                        <p></p>
                         <br />
                         <Label for="exampleEmail">ระยะเวลาในการทำงานโดยประมาณ</Label>
-                        <Input type="select" name="pk_time_period" id="timeperiod" onChange={handleInputChange}>
+                        <Input type="select" name="pk_time_period" id="pk_time_period" onChange={handleInputChange}>
                             <option value="">เลือกระยะเวลา</option>
                             <option value="ภายใน 3 วัน">3 วัน</option>
                             <option value="ภายใน 7 วัน" >7 วัน</option>
@@ -93,6 +120,8 @@ const ModalPacks = (props) => {
                             <option value="ภายใน 30 วัน">30 วัน</option>
 
                         </Input>
+                        <span className="err" name="err" id="chk-pk_time_period"></span>
+                        <p></p>
                     </Container>
                 </ModalBody>
 

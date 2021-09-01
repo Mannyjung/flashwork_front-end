@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Container, Input, Label, Button, Modal, ModalHeader, ModalBody, ModalFooter,FormGroup} from 'reactstrap';
+import { Container, Input, Label, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Swal from 'sweetalert2';
 import Api from '../../api/Api';
 
@@ -12,33 +12,34 @@ const Editpost = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-    const [maincate, setmaincate] = useState([])
-    const [subcate, setsubcate] = useState([])
-    const [selectcate, setselectcate] = useState(0)
-    const [sub_cate_id, setsub_cate_id] = useState(0)
-    useEffect(() => {
-        const source = axios.CancelToken.source();
+    // const [maincate, setmaincate] = useState([])
+    // const [subcate, setsubcate] = useState([])
+    // const [selectcate, setselectcate] = useState(0)
+    // const [sub_cate_id, setsub_cate_id] = useState(0)
 
-        axios.get(Api('MainCate'), {
-            cancelToken: source.token
-        })
-            .then((res) => {
-                setmaincate(res.data);
-            }
-            );
-        return () => {
-            source.cancel();
-        }
-    }, []);
+    // useEffect(() => {
+    //     const source = axios.CancelToken.source();
 
-    const selectsub = (e) => {
-        let maincateid = e.target.value
-        setselectcate(maincateid)
-        axios.get(Api('subcatebyid') + maincateid)
-            .then((res) => {
-                setsubcate(res.data);
-            });
-    }
+    //     axios.get(Api('MainCate'), {
+    //         cancelToken: source.token
+    //     })
+    //         .then((res) => {
+    //             setmaincate(res.data);
+    //         }
+    //         );
+    //     return () => {
+    //         source.cancel();
+    //     }
+    // }, []);
+
+    // const selectsub = (e) => {
+    //     let maincateid = e.target.value
+    //     setselectcate(maincateid)
+    //     axios.get(Api('subcatebyid') + maincateid)
+    //         .then((res) => {
+    //             setsubcate(res.data);
+    //         });
+    // }
 
     const initPost = {
         aw_id: "",
@@ -59,7 +60,21 @@ const Editpost = (props) => {
         setShowdetail({ ...showdetail, [name]: value })
     };
     const saveEditPost = () => {
-        console.log(sub_cate_id)
+
+        // console.log(sub_cate_id)
+        let err = ""
+        if (!showdetail.aw_name) {
+            err = "กรุณากรอกชื่องาน"
+            document.getElementById('chkaw_name').innerHTML = err;
+            return false;
+        }
+
+        if (!showdetail.aw_detail) {
+            err = "กรุณากรอกรายละเอียดงาน"
+            document.getElementById('chkaw_detail').innerHTML = err;
+            return false;
+        }
+
         var data = {
             aw_name: showdetail.aw_name,
             aw_detail: showdetail.aw_detail,
@@ -96,6 +111,8 @@ const Editpost = (props) => {
                             value={showdetail.aw_name}
                             onChange={handleInputChange}
                         />
+                        <span className="err" name="err" id="chkaw_name"></span>
+                        <p></p>
 
                         <Label for="exampleText">รายละเอียด</Label>
                         <Input
@@ -107,12 +124,15 @@ const Editpost = (props) => {
                             rows={10}
                             cols={5}
                         />
+                        <span className="err" name="err" id="chkaw_detail"></span>
+                        <p></p>
+
                         {/* <Label for="exampleSelect">หมวดหมู่</Label> */}
-                        
+
                         {/* <Input type="text" name="main_cate_id" id="main_cate_id" value={showdetail.aw_sub_cate_id} hidden /> */}
 
-{/* 
-                        <FormGroup>
+
+                        {/* <FormGroup>
                             <Label for="exampleSelect">หมวดหมู่หลัก</Label>
                             <Input type="select" name="main_cate_id" id="main_cate_id" onChange={selectsub} >
                                 <option value='0'>เลือกหมวดหมู่</option>
@@ -138,7 +158,7 @@ const Editpost = (props) => {
                                 </Input>
 
                             </FormGroup> */}
-                            
+
                     </Container>
                 </ModalBody>
                 <ModalFooter>

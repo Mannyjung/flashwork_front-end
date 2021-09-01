@@ -95,7 +95,7 @@ const Selecpackage = ({ id }) => {
                 })
                 .then(() => {
                     Swal.fire(
-                        'ดำเดินการจ้างงาน',
+                        'ดำเนินการจ้างงานสำเร็จ',
                         '',
                         'success'
                     )
