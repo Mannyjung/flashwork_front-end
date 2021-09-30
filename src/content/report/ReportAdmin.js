@@ -129,7 +129,7 @@ const ReportAdmin = () => {
                                             <th>รายละเอียด</th>
                                             <th>วันที่</th>
                                             <th>ระดับความสำคัญ</th>
-                                            <th>สถานะ</th>
+                                            {/* <th>สถานะ</th> */}
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -144,9 +144,9 @@ const ReportAdmin = () => {
                                                     <td>{reports.rp_detail}</td>
                                                     <td>{reports.rp_date}</td>
                                                     <td>{reports.rp_importance}</td>
-                                                    <td style={{ color: "#ff5722" }}>
+                                                    {/* <td style={{ color: "#ff5722" }}>
                                                         {reports.rp_status}
-                                                    </td>
+                                                    </td> */}
                                                     <td>
                                                         {" "}
                                                         <Button
@@ -181,7 +181,7 @@ const ReportAdmin = () => {
                                             <th>รายละเอียด</th>
                                             <th>วันที่</th>
                                             <th>ระดับความสำคัญ</th>
-                                            <th>สถานะ</th>
+                                            {/* <th>สถานะ</th> */}
                                             
                                         </tr>
                                     </thead>
@@ -196,9 +196,9 @@ const ReportAdmin = () => {
                                                     <td>{readed.rp_detail}</td>
                                                     <td>{readed.rp_date}</td>
                                                     <td>{readed.rp_importance}</td>
-                                                    <td style={{ color: "#ff5722" }}>
+                                                    {/* <td style={{ color: "#ff5722" }}>
                                                         {readed.rp_status}
-                                                    </td>
+                                                    </td> */}
                                                     
                                                 </tr>
                                             </tbody>

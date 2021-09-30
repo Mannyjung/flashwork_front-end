@@ -35,7 +35,6 @@ const Comment = (props) => {
         let data = {
             emm_review: insertcomment.emm_review,
             emm_status: "เสร็จสิ้นและรีวิว"
-
         }
         // console.log(props.emm_id);
         axios.put(Api('addreview') + props.emm_id, data)

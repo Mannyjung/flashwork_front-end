@@ -294,4 +294,16 @@
 }
 
 
+.nameMyPost{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:250px;
+}
 
+#pk_Over{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:150px;
+}

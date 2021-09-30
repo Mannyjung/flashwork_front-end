@@ -65,6 +65,7 @@ const Api = (props) => {
         case 'detailpost': return path + "detailpost/";
         case 'reviewpost': return path + "reviewpost/";
         case 'editpost': return path + "editpost/";
+        case 'editcateg': return path + "editcateg/";
         case 'newpackage': return path + "newpackage";
         case 'getPackagebyId': return path + "getPackagebyId/";
         case 'editpackage': return path + "editpackage/";
@@ -94,7 +95,7 @@ const Api = (props) => {
         case 'employmentFlReq': return path + "employmentFlReq/";
         case 'employmentFlProgress': return path + "employmentFlProgress/";
         case 'employmentFlSuc': return path + "employmentFlSuc/";
-
+        case 'employmentFlSucAndR': return path + "employmentFlSucAndR/";
         // -------------------- history -----------------------
         case 'getHistoryEmp': return path + "getHistoryEmp/";
         case 'getHistory': return path + "getHistory/";

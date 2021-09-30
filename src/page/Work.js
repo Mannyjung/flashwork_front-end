@@ -7,7 +7,7 @@ import {
 
 import '../css/work.css';
 import Content from '../content/Work/Work';
-import Pic from '../content/Work/Card';
+import Pic from '../content/Work/comment';
 const Work = () => {
 
     return (

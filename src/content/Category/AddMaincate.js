@@ -47,7 +47,7 @@ const AddMaincate = () => {
     const formik = useFormik({
         initialValues: initCate,
         validationSchema: yup.object().shape({
-
+            main_cate_name: yup.string().required("กรุณากรอกประเภทงานหลัก"),
 
         }),
         onSubmit: (values) => {
@@ -57,9 +57,8 @@ const AddMaincate = () => {
             else {
                 Swal.fire({
                     icon: 'error',
-                    title: 'กรุณากรอกข้อมูลให้ครบ',
+                    title: 'กรุณาใส่รูปภาพของประเภทงานหลัก',
                     confirmButtonText: 'ตกลง'
-
                 })
             }
         },
@@ -68,6 +67,14 @@ const AddMaincate = () => {
 
 
     const saveMaincate = (imageURL) => {
+
+        // let err = "" ;
+        // if (!passwords.em_password) {
+        //     err = "กรุณากรอกรหัสผ่าน"
+        //     document.getElementById('em_password').innerHTML = err
+        //     return false;
+        //   }
+
         var data = {
             status: localStorage.getItem('status'),
             main_cate_name: formik.values.main_cate_name,
@@ -123,8 +130,16 @@ const AddMaincate = () => {
                     <Form onSubmit={formik.handleSubmit} >
                         <ModalBody>
                             <Label for="" sm={4} size="">ประเภทงานหลัก</Label>
-                            <Input type="text" name="main_cate_name" value={formik.values.main_cate_name}
-                                onChange={formik.handleChange} />
+                            <Input 
+                            type="text" 
+                            name="main_cate_name" 
+                            value={formik.values.main_cate_name}
+                            onChange={formik.handleChange} 
+                            />
+                             {formik.errors.main_cate_name && formik.touched.main_cate_name && (
+                                                            <p style={{ color: "red" }}>{formik.errors.main_cate_name}</p>
+                                                        )}
+
                             <Label for="" sm={4} size="">เพิ่มรูปพื้นหลัง</Label>
 
                             <Input

@@ -29,8 +29,13 @@ const EditMain = (props) => {
     };
 
     const saveEditmaincate = () => {
+        let err = "" ;
+        if (!editmain.main_cate_name) {
+            err = "กรุณากรอกประเภทงานหลัก"
+            document.getElementById('main_cate_name_err').innerHTML = err
+            return false;
+          }
         var data = {
-
             main_cate_name: editmain.main_cate_name
         }
         axios.put(Api('editMainCate') + props.id, data)
@@ -59,6 +64,8 @@ const EditMain = (props) => {
                 <ModalBody>
                     <Label for="" sm={4} size="">ประเภทงานหลัก</Label>
                     <Input name="main_cate_name" onChange={handleInputChange} value={editmain.main_cate_name} />
+                    <span className="err" name="err" id="main_cate_name_err"></span>
+                     <p></p>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={saveEditmaincate}>ตกลง</Button>{' '}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink,  Button, Row, Col, Container, Table, } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Button, Row, Col, Container, Table, } from 'reactstrap';
 import classnames from 'classnames';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import Api from '../../api/Api';
 
 const EmploymentFl = (props) => {
 
-   
+
 
     const [activeTab, setActiveTab] = useState('1');
 
@@ -19,6 +19,7 @@ const EmploymentFl = (props) => {
     const [employmentReq, setEmploymentReq] = useState([]);
     const [employmentPro, setEmploymentPro] = useState([]);
     const [employmentSuc, setEmploymentSuc] = useState([]);
+    const [employmentSucAndR, setEmploymentSucAndR] = useState([]);
     useEffect(() => {
         axios.get(Api('employmentFlReq') + id)
             .then((response) => {
@@ -33,18 +34,22 @@ const EmploymentFl = (props) => {
             .then((response) => {
                 setEmploymentSuc(response.data)
             })
+        axios.get(Api('employmentFlSucAndR') + id)
+            .then((response) => {
+                setEmploymentSucAndR(response.data)
+            })
 
 
     }, [id]);
 
-    const showreview = (getreview) => {
+      const showreview = (getreview) => {
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'การรีวิว : ' + getreview,
-           
-         })
-        
+
+        })
+
     }
 
     const accept = async (emm_id, emm_user_id, pk_name) => {
@@ -88,12 +93,12 @@ const EmploymentFl = (props) => {
                 });
         }
     };
-    const deleteEmployment = async (emm_id,emm_user_id,pk_name) => {
-       
+    const deleteEmployment = async (emm_id, emm_user_id, pk_name) => {
+
         let result = await confirm(
             {
                 title: <> Confirmation !!</>,
-                message: 'คุณยกเลิกการจ้างงานของ : "'+ emm_user_id + '" จากแพ็คเกจ '+ pk_name + ' ใช่ไหม ?',
+                message: 'คุณยกเลิกการจ้างงานของ : "' + emm_user_id + '" จากแพ็คเกจ ' + pk_name + ' ใช่ไหม ?',
                 confirmText: "ใช่",
                 confirmColor: "primary",
                 cancelText: "ไม่ใช่",
@@ -102,12 +107,12 @@ const EmploymentFl = (props) => {
         if (result) {
             axios
                 .delete(Api('deleteEmployment') + emm_id)
-                .then((response) => {   
+                .then((response) => {
                     if (response.data.message === "success") {
                         Swal.fire({
                             position: 'center',
                             icon: 'error',
-                            title: ' คุณได้ยกเลิกการจ้างงานของ ' + emm_user_id  +'ที่แพ็คเกจ'+ pk_name+' เรียบร้อย ',
+                            title: ' คุณได้ยกเลิกการจ้างงานของ ' + emm_user_id + 'ที่แพ็คเกจ' + pk_name + ' เรียบร้อย ',
                             showConfirmButton: false,
                             timer: 1500,
                             width: 600,
@@ -118,11 +123,11 @@ const EmploymentFl = (props) => {
                           url("/image/cat.gif")
                           right top
                           no-repeat
-                        ` }).then(()=>{
-                            window.location.reload();
-                        })
+                        ` }).then(() => {
+                                window.location.reload();
+                            })
                     }
-                
+
                 });
         }
     };
@@ -159,6 +164,14 @@ const EmploymentFl = (props) => {
                             <h4 style={{ color: "black" }}>เสร็จสิ้น</h4>
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink
+                            className={classnames({ active: activeTab === '4' })}
+                            onClick={() => { toggle('4'); }}
+                        >
+                            <h4 style={{ color: "black" }}>เสร็จสิ้นและรีวิว</h4>
+                        </NavLink>
+                    </NavItem>
                 </Nav>
                 <TabContent activeTab={activeTab}>
                     <TabPane tabId="1">
@@ -191,8 +204,8 @@ const EmploymentFl = (props) => {
                                                         <Button color="success"
                                                             onClick={() => accept(requestFl.emm_id, requestFl.emm_user_id, requestFl.pk_name)}
                                                         >ยอมรับ</Button>{' '}
-                                                       <Button color="danger"
-                                                        onClick={() => deleteEmployment(requestFl.emm_id,requestFl.emm_user_id,requestFl.pk_name)}
+                                                        <Button color="danger"
+                                                            onClick={() => deleteEmployment(requestFl.emm_id, requestFl.emm_user_id, requestFl.pk_name)}
                                                         >ยกเลิก</Button>
                                                     </td>
                                                 </tr>
@@ -249,11 +262,47 @@ const EmploymentFl = (props) => {
                                             <th>ชื่องาน</th>
                                             <th>ชื่อแพ็คเกจ</th>
                                             <th>วันที่</th>
-                                            <th>รีวิว</th>
+                                           
 
                                         </tr>
                                     </thead>
                                     {employmentSuc.map((requestFl) => {
+
+                                        return (
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">{requestFl.emm_id}</th>
+                                                    <td>{requestFl.emm_user_id}</td>
+                                                    <td>{requestFl.aw_name}</td>
+                                                    <td>{requestFl.pk_name}</td>
+                                                    <td>{requestFl.emm_date_time}</td>
+                                                   
+
+
+                                                </tr>
+                                            </tbody>
+                                        )
+                                    })}
+                                </Table>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="4">
+                        <Row>
+                            <Col sm="12">
+                                <Table striped>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>ผู้ว่าจ้าง</th>
+                                            <th>ชื่องาน</th>
+                                            <th>ชื่อแพ็คเกจ</th>
+                                            <th>วันที่</th>
+                                            <th>รีวิว</th>
+
+                                        </tr>
+                                    </thead>
+                                    {employmentSucAndR.map((requestFl) => {
 
                                         return (
                                             <tbody>

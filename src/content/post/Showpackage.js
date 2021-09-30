@@ -6,6 +6,7 @@ import confirm from "reactstrap-confirm";
 import Modals from './Modals';
 import ModalsP from './ModalPacks';
 import Api from '../../api/Api';
+import '../../css/cardhome.css';
 const Showpackage = ({ id }) => {
 
 
@@ -79,19 +80,19 @@ const Showpackage = ({ id }) => {
                         <Card className="pt-5 pb-5 mb-3" id="subcard">
                             <Row >
                                 <Col sm={2}>
-                                    <CardTitle className="text-dark ml-5" style={{ fontSize: 15 }} id="setsubText2">{showPackages.pk_id}</CardTitle>
+                                    <CardTitle className="text-dark ml-5" style={{ fontSize: 15 }} >{showPackages.pk_id}</CardTitle>
                                 </Col>
                                 <Col sm={2}>
-                                    <CardTitle className="text-dark" style={{ fontSize: 15 }} id="setsubText2">{showPackages.pk_name}</CardTitle>
+                                    <CardTitle className="text-dark" id="pk_Over" style={{ fontSize: 15 }} >{showPackages.pk_name}</CardTitle>
                                 </Col>
                                 <Col sm={4}>
-                                    <CardTitle  className="packwork-de"  >{showPackages.pk_detail}</CardTitle>
+                                    <CardTitle  className="text-dark" id="pk_Over" >{showPackages.pk_detail}</CardTitle>
                                 </Col>
                                 <Col sm={1}>
-                                    <CardTitle className="text-dark" style={{ fontSize: 15 }} id="setsubText2">{showPackages.pk_price}</CardTitle>
+                                    <CardTitle className="text-dark" style={{ fontSize: 15 }} >{showPackages.pk_price}</CardTitle>
                                 </Col>
                                 <Col sm={1}>
-                                    <CardTitle className="text-dark" style={{ fontSize: 15 }} id="setsubText2">{showPackages.pk_time_period}</CardTitle>
+                                    <CardTitle className="text-dark" style={{ fontSize: 15 }} >{showPackages.pk_time_period}</CardTitle>
                                 </Col>
                                 <Col sm={1}>
                                     {/* <Button className="" color="success" size="sm">แก้ไข</Button> */}

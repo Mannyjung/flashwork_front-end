@@ -43,6 +43,14 @@ const EmploymentEpy = () => {
 
     }, [id]);
 
+    const showreview = (getreview) => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'การรีวิว : ' + getreview,
+
+        })}
+
     const deleteEmployment = async (emm_id,emm_std_id,pk_name) => {
        
         let result = await confirm(
@@ -295,7 +303,7 @@ const EmploymentEpy = () => {
                                             <th>ชื่องาน</th>
                                             <th>ชื่อแพ็คเกจ</th>
                                             <th>วันที่</th>
-                                            <th>สถานะ</th>
+                                           
                                             {/* <th>จัดการ</th> */}
 
                                         </tr>
@@ -310,7 +318,7 @@ const EmploymentEpy = () => {
                                                     <td>{requestFl.aw_name}</td>
                                                     <td>{requestFl.pk_name}</td>
                                                     <td>{requestFl.emm_date_time}</td>
-                                                    <td>{requestFl.emm_status}</td>
+                                                    <td><Button onClick={() => showreview(requestFl.emm_review)} color="success">ดูรีวิว</Button></td>
                                                     {/* <td>
 
                                                     <Comment emm_id={requestFl.emm_id}/>

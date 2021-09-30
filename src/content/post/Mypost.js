@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {
-    Card, Modal, ModalHeader, ModalBody, Container, Row, Col, CardImg, CardBody, CardText, Button
+    Card, Modal, ModalHeader, ModalBody, Container, Row, Col, CardImg, CardBody, CardText, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 import '../../css/cardhome.css';
 import Editpost from './Editpost';
+import Editcateg from './Editcateg';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import PriorityHighSharpIcon from '@material-ui/icons/PriorityHighSharp';
@@ -12,6 +13,7 @@ import Popover from '@material-ui/core/Popover';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Api from '../../api/Api';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +52,8 @@ const Mypost = () => {
     };
     const open = Boolean(anchorEl);
 
+
+
     return (
         <>
             <center><h1 style={{ marginTop: "3%", marginBottom: "2%" }}>งานของฉัน <b style={{ color: "orange" }}>({id})</b></h1></center>
@@ -60,30 +64,49 @@ const Mypost = () => {
                         if (myposts.aw_status === 'ไม่ผ่านการอนุมัติ') {
                             return (
                                 <Col md="4">
-                                    <Card className="card-mypost">
-                                        <CardHeader
-                                            avatar={
-                                                <Avatar alt="Travis Howard"
-                                                    src={myposts.std_image} />
-                                            }
-                                           
 
-                                            title={myposts.std_fname}
-                                            subheader={myposts.aw_std_id}
-                                        />
+                                    <Card className="card-mypost">
+                                        <Row>
+                                            <Col sm="10">
+                                                <CardHeader
+                                                    avatar={
+                                                        <Avatar alt="Travis Howard"
+                                                            src={myposts.std_image} />
+                                                    }
+
+                                                    title={myposts.std_fname}
+                                                    subheader={myposts.aw_std_id}
+                                                />
+                                            </Col>
+                                            <UncontrolledDropdown>
+                                                <DropdownToggle className="btn-icon btn-2" style={{ backgroundColor: "white", color: "black", border: "none" }} type="button">
+                                                    <span className="btn-inner--icon">
+                                                        <MoreVertIcon />
+                                                    </span>
+                                                </DropdownToggle>
+                                                <DropdownMenu>
+                                                    <DropdownItem divider />
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็คเก็จ</DropdownItem>
+                                                    <DropdownItem divider />
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/myphotos/" + myposts.aw_id}>รูปภาพ</DropdownItem>
+                                                    <DropdownItem divider />
+                                                </DropdownMenu>
+                                            </UncontrolledDropdown>
+                                        </Row>
                                         <CardImg className="imgwork" src={myposts.w_img_name} />
                                         <CardBody >
                                             <Row >
-                                                <Col sm="12" className="textname-mypost">
-                                                    <b><CardText>{myposts.aw_name}</CardText></b>
-                                                    <CardText > <b style={{ color: "orange" }}> ราคา  </b>
-                                                        <b>{myposts.pk_price}</b>
+                                            <Col sm="12" className="textname-mypost">
+                                                    <b><CardText className="nameMyPost">{myposts.aw_name}</CardText></b>
+                                                    <CardText className="nameMyPost"><b style={{ color: "#ff5722" }}>ประเภทงาน</b>
+                                                        : <b>{myposts.main_cate_name}</b>{' '}
+                                                        , <b style={{ color: "orange" }}>{myposts.sub_cate_name}</b>
                                                     </CardText>
                                                 </Col>
 
                                             </Row>
-                                            <CardText>สถานะ
-                                                <b style={{ color: "green" }}>{myposts.aw_status}
+                                            <CardText><b style={{ color: "#ff5722" }}>สถานะ </b>
+                                                <b> : {myposts.aw_status}
                                                     <PriorityHighSharpIcon onClick={toggle} aria-owns={open ? 'mouse-over-popover' : undefined}
                                                         aria-haspopup="true"
                                                         onMouseEnter={handlePopoverOpen}
@@ -120,18 +143,12 @@ const Mypost = () => {
                                             </Modal>
 
                                             <hr />
-                                            <Row className="btn-mypost">
-                                                <Col sm="3">
+                                            <Row>
+                                                <Col sm="6">
                                                     <Editpost aw_id={myposts.aw_id} />
                                                 </Col>
-                                                <Col sm="5"><Button className="btn-mypost2" href={"/mypackage/" + myposts.aw_id}>
-                                                    แพ็คเก็จ
-                                                </Button>
-                                                </Col>
-                                                <Col sm="4">
-                                                    <Button color="secondary" href={"/myphotos/" + myposts.aw_id}>
-                                                        รูปภาพ
-                                                    </Button>
+                                                <Col sm="6">
+                                                    <Editcateg aw_id={myposts.aw_id} />
                                                 </Col>
                                             </Row>
                                         </CardBody>
@@ -141,47 +158,60 @@ const Mypost = () => {
                         } else {
                             return (
                                 <Col md="4">
-                                    <Card className="card-mypost">
-                                        <CardHeader
-                                            avatar={
-                                                <Avatar alt="Travis Howard"
-                                                    src={myposts.std_image} />
-                                            }
-                                          
 
-                                            title={myposts.std_fname}
-                                            subheader={myposts.aw_std_id}
-                                        />
+                                    <Card className="card-mypost">
+                                        <Row>
+                                            <Col sm="10">
+                                                <CardHeader
+                                                    avatar={
+                                                        <Avatar alt="Travis Howard"
+                                                            src={myposts.std_image} />
+                                                    }
+
+                                                    title={myposts.std_fname}
+                                                    subheader={myposts.aw_std_id}
+                                                />
+                                            </Col>
+                                            <UncontrolledDropdown>
+                                                <DropdownToggle className="btn-icon btn-2" style={{ backgroundColor: "white", color: "black", border: "none" }} type="button">
+                                                    <span className="btn-inner--icon">
+                                                        <MoreVertIcon />
+                                                    </span>
+                                                </DropdownToggle>
+                                                <DropdownMenu>
+                                                    <DropdownItem divider />
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็คเก็จ</DropdownItem>
+                                                    <DropdownItem divider />
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/myphotos/" + myposts.aw_id}>รูปภาพ</DropdownItem>
+                                                    <DropdownItem divider />
+                                                </DropdownMenu>
+                                            </UncontrolledDropdown>
+                                        </Row>
                                         <CardImg className="imgwork" src={myposts.w_img_name} />
                                         <CardBody >
                                             <Row >
                                                 <Col sm="12" className="textname-mypost">
-                                                    <b><CardText>{myposts.aw_name}</CardText></b>
-                                                    <CardText > <b style={{ color: "orange" }}> ราคา  </b>
-                                                        <b>{myposts.pk_price}</b>
+                                                    <b><CardText className="nameMyPost">{myposts.aw_name}</CardText></b>
+                                                    <CardText className="nameMyPost"><b style={{ color: "#ff5722" }}>ประเภทงาน</b>
+                                                        : <b>{myposts.main_cate_name}</b>{' '}
+                                                        , <b style={{ color: "orange" }}>{myposts.sub_cate_name}</b>
                                                     </CardText>
                                                 </Col>
 
                                             </Row>
-                                            <CardText>สถานะ
-                                                <b style={{ color: "green" }}>{myposts.aw_status}
+                                            <CardText><b style={{ color: "#ff5722" }}>สถานะ</b>
+                                                <b> : {myposts.aw_status}
                                                 </b>
                                             </CardText>
 
 
                                             <hr />
-                                            <Row className="btn-mypost">
-                                                <Col sm="3">
+                                            <Row>
+                                                <Col sm="6">
                                                     <Editpost aw_id={myposts.aw_id} />
                                                 </Col>
-                                                <Col sm="5"><Button className="btn-mypost2" href={"/mypackage/" + myposts.aw_id}>
-                                                    แพ็คเก็จ
-                                                </Button>
-                                                </Col>
-                                                <Col sm="4">
-                                                    <Button color="secondary" href={"/myphotos/" + myposts.aw_id}>
-                                                        รูปภาพ
-                                                    </Button>
+                                                <Col sm="6">
+                                                    <Editcateg aw_id={myposts.aw_id} />
                                                 </Col>
                                             </Row>
                                         </CardBody>

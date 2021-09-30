@@ -30,7 +30,12 @@ const Editcatefrom = (props) => {
     };
 
     const saveEditsubcate = () => {
-
+        let err = "" ;
+        if (!editsubcate.sub_cate_name) {
+            err = "กรุณากรอกประเภทงานย่อย"
+            document.getElementById('sub_cate_name_err').innerHTML = err
+            return false;
+          }
         var data = {
             main_cate_id: editsubcate.main_cate_id,
             sub_cate_name: editsubcate.sub_cate_name
@@ -78,7 +83,10 @@ const Editcatefrom = (props) => {
                 <ModalBody>
                     <Label for="" sm={4} size="">ประเภทงานย่อย</Label>
                     <Input name="sub_cate_name" onChange={handleInputChange} value={editsubcate.sub_cate_name} />
+                    <span className="err" name="err" id="sub_cate_name_err"></span>
+                     <p></p>
                 </ModalBody>
+
                 <ModalFooter>
                     <Button color="primary" onClick={saveEditsubcate}>ตกลง</Button>{' '}
                     <Button color="secondary" onClick={toggle}>ยกเลิก</Button>
