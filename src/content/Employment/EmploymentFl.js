@@ -67,7 +67,7 @@ const EmploymentFl = (props) => {
             });
         if (result) {
             axios
-                .put(Api('employmentEpyReq') + emm_id, data)
+                .put(Api('employmentAccept') + emm_id, data)
                 .then((response) => {
 
                     if (response.data.message === "success") {

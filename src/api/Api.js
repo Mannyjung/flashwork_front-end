@@ -93,6 +93,7 @@ const Api = (props) => {
         case 'deleteEmployment' : return path + "deleteemploymentReq/"
         // -------------------- employmentFree -----------------------
         case 'employmentFlReq': return path + "employmentFlReq/";
+        case 'employmentAccept': return path + "employmentAccept/";
         case 'employmentFlProgress': return path + "employmentFlProgress/";
         case 'employmentFlSuc': return path + "employmentFlSuc/";
         case 'employmentFlSucAndR': return path + "employmentFlSucAndR/";
