@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 // const resetPassword = () => {
 // }
 
-const LoginV2 = () => {
+const RePassword = () => {
     const classes = useStyles();
     let { us } = useParams();
     let { id } = useParams();
