@@ -25,7 +25,7 @@ const Employer = () => {
                         <th>อีเมล์</th>
 
                         <th>สถานะ</th>
-                        <th>แก้ไขสถานะ</th>
+                        <th>ดูข้อมูล</th>
                     </tr>
                 </thead>
                 {employer.map((data) => (
