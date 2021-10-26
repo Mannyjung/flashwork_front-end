@@ -90,14 +90,16 @@ const Selecpackage = ({ id }) => {
                     }
                 })
                 .then(() => {
-                    Swal.fire(
-                        'ดำเนินการจ้างงานสำเร็จ',
-                        '',
-                        'success'
-                    )
-                })
-                .then(() => {
-                    window.location.assign("/chat")
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'ดำเนินการจ้างงานเสร็จสิ้น',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                        .then(() => {
+                            window.location.assign("/employmentEpy")
+                        })
                 })
 
         };
