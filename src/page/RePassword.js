@@ -200,4 +200,4 @@ const RePassword = () => {
     }
 }
 
-export default LoginV2
+export default RePassword
