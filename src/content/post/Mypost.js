@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 const Mypost = () => {
     const classes = useStyles();
     const [modal, setModal] = useState(false);
-
     const toggle = () => setModal(!modal);
 
     const [mypost, setMypost] = useState([]);
@@ -41,18 +40,16 @@ const Mypost = () => {
             })
         return () => { isMounted = false };
     }, [id]);
-    const [anchorEl, setAnchorEl] = useState(null);
 
+
+    const [anchorEl, setAnchorEl] = useState(null);
     const handlePopoverOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
     const handlePopoverClose = () => {
         setAnchorEl(null);
     };
     const open = Boolean(anchorEl);
-
-
 
     return (
         <>
@@ -96,7 +93,7 @@ const Mypost = () => {
                                         <CardImg className="imgwork" src={myposts.w_img_name} />
                                         <CardBody >
                                             <Row >
-                                            <Col sm="12" className="textname-mypost">
+                                                <Col sm="12" className="textname-mypost">
                                                     <b><CardText className="nameMyPost">{myposts.aw_name}</CardText></b>
                                                     <CardText className="nameMyPost"><b style={{ color: "#ff5722" }}>ประเภทงาน</b>
                                                         : <b>{myposts.main_cate_name}</b>{' '}
@@ -203,8 +200,6 @@ const Mypost = () => {
                                                 <b> : {myposts.aw_status}
                                                 </b>
                                             </CardText>
-
-
                                             <hr />
                                             <Row>
                                                 <Col sm="6">

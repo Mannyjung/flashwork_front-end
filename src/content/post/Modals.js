@@ -5,15 +5,11 @@ import Swal from 'sweetalert2';
 import '../../css/modal.css'
 import Api from '../../api/Api';
 const Modals = (props) => {
-
     const {
         buttonLabel = "แก้ไข",
-        
     } = props;
-
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-
     const [showPackagebyid, setShowPackagebyid] = useState([]);
     useEffect(() => {
         axios.get(Api('getPackagebyId') + props.pkid)
@@ -42,7 +38,6 @@ const Modals = (props) => {
             document.getElementById('chk-pk_price').innerHTML = err;
             return false;
         }
-
         var data = {
             pk_name: showPackagebyid.pk_name,
             pk_detail: showPackagebyid.pk_detail,

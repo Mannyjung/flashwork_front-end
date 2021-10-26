@@ -58,20 +58,17 @@ const Selecpackage = ({ id }) => {
             emm_pk_id: pk_id,
             emm_status: "รอการตอบรับ",
         }
-
         let data = {
             User_id: localStorage.getItem('User_id'),
             toUser_id: aw_std_id,
             message: "สวัสดี อยากจ้างงาน" + aw_name + "ที่แพ็คเกจ" + pk_name
         }
-
         let data1 = {
             User_id: aw_std_id,
             toUser_id: localStorage.getItem('User_id'),
             message: "กรุณารอฟรีแลนซ์ตอบกลับข้อความ"
         }
         let result = await confirm(
-
             {
                 title: <> Confirmation !!</>,
                 message: 'คุ ณ ส น ใ จ จ้ า ง ง า น แ ล ะ ติ ด ต่ อ กั บ ฟ รี แ ล น ซ์ ห รื อ ไ ม่',
@@ -82,7 +79,6 @@ const Selecpackage = ({ id }) => {
 
             });
         if (result) {
-
             axios.post(Api('employment'), dataEmp)
                 .then((res) => {
                 }

@@ -29,7 +29,7 @@ const FromMain = (props) => {
                 <Card className="pt-2 pb-2 mt-2" inverse id="subcard">
                     <Row >
                         <Col sm={10}>
-                            <Label className="text-dark ml-5" style={{ fontSize: 17 }} id="setsubText"><b>ประเภทงานย่อย</b></Label>
+                            <Label className="text-dark ml-5" style={{ fontSize: 17 }} id="setsubText"><b>ประเภทงานหลัก</b></Label>
                         </Col>
                         <Col sm={2}>
                             <Label className="text-dark" tag="h2" id="setsubText"><b>แก้ไข</b></Label>

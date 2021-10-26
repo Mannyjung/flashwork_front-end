@@ -11,8 +11,6 @@ import { v4 as uuidv4 } from 'uuid';
 import '../../css/cardhome.css'
 import Api from '../../api/Api';
 
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -29,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 const PhotoList = ({ id }) => {
-
-
     const [showdetail, setShowdetail] = useState([]);
     useEffect(() => {
         axios.get(Api('PIC') + id)
@@ -51,15 +47,12 @@ const PhotoList = ({ id }) => {
                         window.location.reload();
                     })
             })
-        //}
     };
-
     const img = {
         file: [],
     };
 
     const [progress, setProgress] = useState(0);
-
 
     const uploadFileToFirebase = async (files) => {
         let array = Array.from(files)
@@ -119,7 +112,6 @@ const PhotoList = ({ id }) => {
             w_aw_id: id,
             w_img_name: imgs,
         }
-
         axios.post(Api('addphotos'), data)
             .then((response) => {
                 if (response.data.messages === "success") {
@@ -132,7 +124,7 @@ const PhotoList = ({ id }) => {
                             window.location.reload()
 
                         })
-                } else if (response.data.messages === "FailPost") {
+                } else if (response.data.messages === " ") {
                     Swal.fire(
                         'กรุณากรอกข้อมูลให้ครบ',
                         '',

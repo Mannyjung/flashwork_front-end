@@ -25,6 +25,7 @@ const ChatList = () => {
     <>
       <div className="main__chatlist">
         <div className="chatlist__items">
+        <p id="chatname">รายชื่อผู้ติดต่อ</p>
           <div className="scoll">
             {allmessage.map((item) => {
               let status = false;

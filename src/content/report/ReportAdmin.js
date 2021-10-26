@@ -18,8 +18,8 @@ import Swal from "sweetalert2";
 import Api from "../../api/Api";
 
 const ReportAdmin = () => {
+    
     const [report, setReport] = useState([]);
-
     useEffect(() => {
         axios.get(Api("report")).then((res) => {
             setReport(res.data);

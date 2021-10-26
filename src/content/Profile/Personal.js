@@ -95,7 +95,6 @@ const Personal = ({ id }) => {
             document.getElementById('chkstd_lname').innerHTML = err;
             return false;
         }
-
         if (!student.std_phone) {
             err = "กรุณากรอกเบอร์"
             document.getElementById('chkstd_phone').innerHTML = err
@@ -106,8 +105,6 @@ const Personal = ({ id }) => {
             document.getElementById('chkstd_phone').innerHTML = err
             return false;
         }
-
-
         var data = {
             std_fname: student.std_fname,
             std_lname: student.std_lname,
@@ -156,7 +153,6 @@ const Personal = ({ id }) => {
             }
         )
     }
-
     const formik = useFormik({
         initialValues: iniImage,
         validationSchema: yup.object().shape({

@@ -8,11 +8,8 @@ const ModalPacks = (props) => {
     const {
         buttonLabel = "เพิ่มแพ็คเก็จ",
     } = props;
-
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-
-
     const newPacks = {
         pk_name: "",
         pk_detail: "",
@@ -20,7 +17,6 @@ const ModalPacks = (props) => {
         pk_aw_id: "",
         pk_time_period: ""
     };
-
     const [newpackage, setNewpackage] = useState(newPacks);
     const handleInputChange = (event) => {
         let { name, value } = event.target;
@@ -48,7 +44,6 @@ const ModalPacks = (props) => {
             document.getElementById('chk-pk_time_period').innerHTML = err;
             return false;
         }
-
         var data = {
             pk_name: newpackage.pk_name,
             pk_detail: newpackage.pk_detail,

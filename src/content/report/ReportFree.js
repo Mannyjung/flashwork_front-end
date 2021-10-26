@@ -7,8 +7,6 @@ import Api from '../../api/Api';
 
 
 const ReportFree = () => {
-
-
     const initReport = {
         rp_id: "",
         rp_user_id: "",
@@ -19,13 +17,11 @@ const ReportFree = () => {
         rp_status: ""
     };
     const [report, setReport] = useState(initReport);
-
     const handleInputChange = (event) => {
         let { name, value } = event.target;
         setReport({ ...report, [name]: value })
     };
     const saveReport = () => {
-
         let err = ""
         if (!report.rp_title) {
             err = "กรุณากรอกหัวข้อคำร้องเรียน"
@@ -42,7 +38,6 @@ const ReportFree = () => {
             document.getElementById('chk-rp_importance').innerHTML = err;
             return false;
         }
-
         var data = {
             rp_user_id: localStorage.getItem('User_id'),
             rp_title: report.rp_title,
@@ -86,8 +81,7 @@ const ReportFree = () => {
                 <Form>
                     <Card>
 
-
-                        <CardBody>
+                       <CardBody>
                             <Row form>
 
                                 <Col md={6}>

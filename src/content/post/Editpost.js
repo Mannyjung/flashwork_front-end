@@ -31,7 +31,6 @@ const Editpost = (props) => {
         setShowdetail({ ...showdetail, [name]: value })
     };
     const saveEditPost = () => {
-
         // console.log(sub_cate_id)
         let err = ""
         if (!showdetail.aw_name) {
@@ -39,13 +38,11 @@ const Editpost = (props) => {
             document.getElementById('chkaw_name').innerHTML = err;
             return false;
         }
-
         if (!showdetail.aw_detail) {
             err = "กรุณากรอกรายละเอียดงาน"
             document.getElementById('chkaw_detail').innerHTML = err;
             return false;
         }
-
         var data = {
             aw_name: showdetail.aw_name,
             aw_detail: showdetail.aw_detail,

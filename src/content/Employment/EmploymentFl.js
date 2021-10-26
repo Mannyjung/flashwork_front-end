@@ -17,9 +17,13 @@ const EmploymentFl = (props) => {
     }
     const id = localStorage.getItem('User_id');
     const [employmentReq, setEmploymentReq] = useState([]);
+
     const [employmentPro, setEmploymentPro] = useState([]);
+
     const [employmentSuc, setEmploymentSuc] = useState([]);
+
     const [employmentSucAndR, setEmploymentSucAndR] = useState([]);
+    
     useEffect(() => {
         axios.get(Api('employmentFlReq') + id)
             .then((response) => {

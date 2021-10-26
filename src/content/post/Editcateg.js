@@ -19,8 +19,6 @@ const Editcateg = (props) => {
                 setShowdetail(response.data[0])
             })
     }, [props.aw_id]);
-
-
     const [maincate, setmaincate] = useState([])
     const [subcate, setsubcate] = useState([])
     const [selectcate, setselectcate] = useState(0)
@@ -28,7 +26,6 @@ const Editcateg = (props) => {
 
     useEffect(() => {
         const source = axios.CancelToken.source();
-
         axios.get(Api('MainCate'), {
             cancelToken: source.token
         })
@@ -49,7 +46,6 @@ const Editcateg = (props) => {
                 setsubcate(res.data);
             });
     }
-
     const savecate = () => {
         let err = ""
         if (sub_cate_id === 0) {
