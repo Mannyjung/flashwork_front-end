@@ -179,7 +179,7 @@ const Posttitle = () => {
                         })
                 } else if (response.data.messages === "FailPost") {
                     Swal.fire(
-                        'กรุณากรอกข้อมูลให้ครบ',
+                        'ไม่สามารถโพสต์งานได้',
                         '',
                         'warring'
                     )
