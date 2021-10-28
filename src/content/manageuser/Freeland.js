@@ -20,8 +20,8 @@ const Freeland = () => {
                         <th>ชื่อ</th>
                         <th>นามสกุล</th>
                         <th>อีเมล์ </th>
-                        <th>สถานะ</th>
-                        <th>แก้ไขสถานะ</th>
+                        
+                        <th>ตรวจสอบ</th>
                     </tr>
                 </thead>
                 {freeland.map((data) => (
@@ -33,7 +33,7 @@ const Freeland = () => {
                                 <td>{data.std_fname}</td>
                                 <td>{data.std_lname}</td>
                                 <td>{data.std_email}</td>
-                                <td>ปกติ</td>
+                                
                                 <Button style={{backgroundColor:"#ff5722", color:"white"}}  size="lg" href={"/ProfileFreeforadmin/" + data.std_id}>ดูข้อมูล</Button>
                             </tr>
                             <p></p>
