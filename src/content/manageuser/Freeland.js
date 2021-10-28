@@ -21,7 +21,7 @@ const Freeland = () => {
                         <th>นามสกุล</th>
                         <th>อีเมล์ </th>
                         
-                        <th>ตรวจสอบ</th>
+                        <th>ดูข้อมูล</th>
                     </tr>
                 </thead>
                 {freeland.map((data) => (
