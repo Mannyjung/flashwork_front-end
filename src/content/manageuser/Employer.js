@@ -24,7 +24,7 @@ const Employer = () => {
                         <th>นามสกุล</th>
                         <th>อีเมล์</th>
 
-                        <th>สถานะ</th>
+                       
                         <th>ดูข้อมูล</th>
                     </tr>
                 </thead>
@@ -38,7 +38,7 @@ const Employer = () => {
                                 <td>{data.em_fname}</td>
                                 <td>{data.em_lname}</td>
                                 <td>{data.em_email}</td>
-                                <td>ปกติ</td>
+                                
                                 <Button style={{backgroundColor:"#ff5722", color:"white"}}  size="lg" href={"/ProfileEmpforadmin/" + data.em_username}>ดูข้อมูล</Button>
                               
                             </tr>  <p></p>
