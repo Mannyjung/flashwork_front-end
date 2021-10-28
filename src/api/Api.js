@@ -70,6 +70,7 @@ const Api = (props) => {
         case 'getPackagebyId': return path + "getPackagebyId/";
         case 'editpackage': return path + "editpackage/";
         case 'mypost': return path + "mypost/";
+        case 'mypostForProflie': return path + "mypostForProflie/";
         case 'deletePhotos': return path + "deletePhotos/";
         case 'addphotos': return path + "addphotos";
          // -------------------- Status -----------------------

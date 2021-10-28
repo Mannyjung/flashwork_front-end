@@ -71,7 +71,7 @@ const Selecpackage = ({ id }) => {
         let result = await confirm(
             {
                 title: <> Confirmation !!</>,
-                message: 'คุ ณ ส น ใ จ จ้ า ง ง า น แ ล ะ ติ ด ต่ อ กั บ ฟ รี แ ล น ซ์ ห รื อ ไ ม่',
+                message: 'คุณสนใจจ้างงานและติดต่อกับฟรีแลนซ์หรือไม่',
                 confirmText: "ใช่",
                 confirmColor: "primary",
                 cancelText: "ไม่ใช่",
@@ -126,7 +126,7 @@ const Selecpackage = ({ id }) => {
                                     <CardContent className="text-name">
                                         <Tabs>
                                             <Typography gutterBottom variant="h4" style={{ color: "#ff5722" }}>
-                                                แพ็คเกจ
+                                                แพ็กเกจ
                                             </Typography>
                                         </Tabs>
                                         {detail.pk_name}
@@ -135,7 +135,7 @@ const Selecpackage = ({ id }) => {
                                         <Typography variant="body2" component="p">
                                             {detail.pk_detail}
                                             <br />ระยะเวลาในการทำงาน  {detail.pk_time_period}
-                                            <br /><b>ราคาของแพ็คเกจ </b>
+                                            <br /><b>ราคาของแพ็กเกจ </b>
                                             <b style={{ color: "#ff5722" }}>{detail.pk_price}</b>
                                             <b> บาทถ้วน </b>
                                         </Typography>

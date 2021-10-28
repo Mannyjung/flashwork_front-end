@@ -47,7 +47,7 @@ const Showpackage = ({ id }) => {
     return (
         <>
             <Container >
-                <center> <h1 style={{ marginTop: "5%", marginBottom: "3%" }}>แพ็คเก็จของงาน <b style={{ color: "#ff5722" }}>({id})</b> </h1></center>
+                <center> <h1 style={{ marginTop: "5%", marginBottom: "3%" }}>แพ็กเกจของงาน <b style={{ color: "#ff5722" }}>({id})</b> </h1></center>
             </Container>
           <ModalsP id={id} />
             <Container fluid>
@@ -57,7 +57,7 @@ const Showpackage = ({ id }) => {
                             <Label className="text-dark ml-5" style={{ fontSize: 17 }} id="setsubText"><b>#</b></Label>
                         </Col>
                         <Col sm={2}>
-                            <Label className="text-dark" tag="h2" id="setsubText"><b>ชื่อแพ็คเก็จ</b></Label>
+                            <Label className="text-dark" tag="h2" id="setsubText"><b>ชื่อแพ็กเกจ</b></Label>
                         </Col>
                         <Col sm={4}>
                             <Label className="text-dark" tag="h2" id="setsubText"><b>รายละเอียด</b></Label>

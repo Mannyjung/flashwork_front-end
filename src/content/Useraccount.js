@@ -26,7 +26,7 @@ const Useraccount = ({ id }) => {
 
     useEffect(() => {
         let isMounted = true;
-        axios.get(Api('mypost') + id, {
+        axios.get(Api('mypostForProflie') + id, {
         })
             .then((res) => {
                 if (isMounted) setShowaccountwork(res.data);
@@ -42,12 +42,20 @@ const Useraccount = ({ id }) => {
             <Container style={{ marginTop: "5%" }}>
                 <Row>
 
-                    <Col sm="6">
+                    <Col sm="4">
                         <Card>
                             <br />
+                            <center>
+                            <CardImg className="imgaccount" src={showaccount.std_image} />
+                            </center>
+                            <br />
+                        </Card>
+                    </Col>
+                    {/* --------------------------------------- card 1 ------------------------------------------------------- */}
 
-                            <CardImg className="imgaccount" top width="auto" height="300px" src={showaccount.std_image} />
-                            <CardBody>
+                    <Col sm="8">
+                        <Card>
+                        <CardBody>
                                 <CardTitle tag="h5"><b>แนะนำตัวเอง</b></CardTitle>
                                 <br />
                                 <CardText>
@@ -58,27 +66,12 @@ const Useraccount = ({ id }) => {
                                     <hr />
 
                                     เบอร์โทรศัพท์ติดต่อ : {showaccount.std_phone}<br />
-
+                                    <hr />
+                                กำลังศึกษาอยู่ : {showaccount.major_name}  {showaccount.fac_name}  มหาวิทยาลัยราชภัฏนครปฐม
                                 </CardText>
 
                             </CardBody>
-                            <br />
-                        </Card>
-                        <br /> <br /> <br />
-                    </Col>
-                    {/* --------------------------------------- card 1 ------------------------------------------------------- */}
-
-                    <Col sm="6">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5"><b>กำลังศึกษาอยู่</b></CardTitle>
-                                <CardText>
-                                    <p style={{ fontSize: 16 }} className="mt-3">   {showaccount.fac_name}</p>
-
-                                    <p style={{ fontSize: 16 }}> {showaccount.major_name}</p>
-
-                                </CardText>
-                            </CardBody>
+                           
                         </Card>
 
                         {/* ---------------------------------------------- card 3 ------------------------------------------------------ */}

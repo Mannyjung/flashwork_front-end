@@ -63,7 +63,7 @@ const EmploymentFl = (props) => {
         let result = await confirm(
             {
                 title: <> Confirmation !!</>,
-                message: 'คุณยอมรับการจ้างงานของ : "' + emm_user_id + '" จากแพ็คเกจ ' + pk_name + ' ใช่ไหม ?',
+                message: 'คุณยอมรับการจ้างงานของ : "' + emm_user_id + '" จากแพ็กเกจ ' + pk_name + ' ใช่ไหม ?',
                 confirmText: "ใช่",
                 confirmColor: "primary",
                 cancelText: "ไม่ใช่",
@@ -102,7 +102,7 @@ const EmploymentFl = (props) => {
         let result = await confirm(
             {
                 title: <> Confirmation !!</>,
-                message: 'คุณยกเลิกการจ้างงานของ : "' + emm_user_id + '" จากแพ็คเกจ ' + pk_name + ' ใช่ไหม ?',
+                message: 'คุณยกเลิกการจ้างงานของ : "' + emm_user_id + '" จากแพ็กเกจ ' + pk_name + ' ใช่ไหม ?',
                 confirmText: "ใช่",
                 confirmColor: "primary",
                 cancelText: "ไม่ใช่",
@@ -116,7 +116,7 @@ const EmploymentFl = (props) => {
                         Swal.fire({
                             position: 'center',
                             icon: 'error',
-                            title: ' คุณได้ยกเลิกการจ้างงานของ ' + emm_user_id + 'ที่แพ็คเกจ' + pk_name + ' เรียบร้อย ',
+                            title: ' คุณได้ยกเลิกการจ้างงานของ ' + emm_user_id + 'ที่แพ็กเกจ' + pk_name + ' เรียบร้อย ',
                             showConfirmButton: false,
                             timer: 1500,
                             width: 600,
@@ -187,7 +187,7 @@ const EmploymentFl = (props) => {
                                             <th>#</th>
                                             <th>ผู้ว่าจ้าง</th>
                                             <th>ชื่องาน</th>
-                                            <th>ชื่อแพ็คเกจ</th>
+                                            <th>ชื่อแพ็กเกจ</th>
                                             <th>วันที่</th>
                                             <th>สถานะ</th>
                                             <th>จัดการ</th>
@@ -229,7 +229,7 @@ const EmploymentFl = (props) => {
                                             <th>#</th>
                                             <th>ผู้ว่าจ้าง</th>
                                             <th>ชื่องาน</th>
-                                            <th>ชื่อแพ็คเกจ</th>
+                                            <th>ชื่อแพ็กเกจ</th>
                                             <th>วันที่</th>
                                             <th>สถานะ</th>
 
@@ -264,7 +264,7 @@ const EmploymentFl = (props) => {
                                             <th>#</th>
                                             <th>ผู้ว่าจ้าง</th>
                                             <th>ชื่องาน</th>
-                                            <th>ชื่อแพ็คเกจ</th>
+                                            <th>ชื่อแพ็กเกจ</th>
                                             <th>วันที่</th>
                                            
 
@@ -300,7 +300,7 @@ const EmploymentFl = (props) => {
                                             <th>#</th>
                                             <th>ผู้ว่าจ้าง</th>
                                             <th>ชื่องาน</th>
-                                            <th>ชื่อแพ็คเกจ</th>
+                                            <th>ชื่อแพ็กเกจ</th>
                                             <th>วันที่</th>
                                             <th>รีวิว</th>
 

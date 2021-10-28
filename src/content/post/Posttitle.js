@@ -130,13 +130,13 @@ const Posttitle = () => {
         validationSchema: yup.object().shape({
             Work_name: yup.string().required("กรุณากรอกข้อมูลชื่องาน"),
             Work_detail: yup.string().required("กรุณากรอกรายละเอียดงาน"),
-            Pk_name: yup.string().required("กรุณากรอกข้อมูลชื่อแพ็คเกจ"),
-            Pk_detail: yup.string().required("กรุณากรอกละเอียดแพ็คเกจ"),
+            Pk_name: yup.string().required("กรุณากรอกข้อมูลชื่อแพ็กเกจ"),
+            Pk_detail: yup.string().required("กรุณากรอกละเอียดแพ็กเกจ"),
             timeperiod: yup.string().required("กรุณากรอกระยะเวลาทำงาน"),
             Pk_price: yup
                 .number("กรอกเป็นตัวเลขเท่านั้น")
                 .positive("ต้องมีค่าเป็นบวก")
-                .required("กรุณากรอกราคาแพ็คเกจ"),
+                .required("กรุณากรอกราคาแพ็กเกจ"),
         }),
         onSubmit: async (values) => {
             if (values.file) {
@@ -294,14 +294,14 @@ const Posttitle = () => {
 
                                     {/* แพ็คแก็ต */}
                                     <Breadcrumb>
-                                        <BreadcrumbItem active tag="h4" style={{ color: "black" }}>แพ็คเก็ต</BreadcrumbItem>
+                                        <BreadcrumbItem active tag="h4" style={{ color: "black" }}>แพ็กเกจ</BreadcrumbItem>
                                     </Breadcrumb>
                                     <Container style={{ maxWidth: "95%" }}>
                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                                             <Grid container spacing={2} style={{ color: "black" }}>
                                                 <Grid item xs={12} sm={6}>
                                                     <FormGroup>
-                                                        <Label for="exampleEmail">ชื่อแพ็คเก็ต</Label>
+                                                        <Label for="exampleEmail">ชื่อแพ็กเกจ</Label>
                                                         <Input
                                                             type="text"
                                                             name="Pk_name"

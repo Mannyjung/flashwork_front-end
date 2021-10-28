@@ -43,7 +43,7 @@ const HisFree = () => {
                             <TableRow>
                                 <TableCell align="center">ชื่อผู้จ้าง</TableCell>
                                 <TableCell align="center">ชื่องานที่จ้าง</TableCell>
-                                <TableCell align="center">ชื่อแพ็คเกจที่จ้าง</TableCell>
+                                <TableCell align="center">ชื่อแพ็กเกจที่จ้าง</TableCell>
                                 <TableCell align="center">วันที่จ้าง</TableCell>
                             </TableRow>
                         </TableHead>

@@ -48,7 +48,7 @@ const BarEmploy = () => {
                 <Link href="/chat">
                     <ListItem button>
                         <ListItemIcon>
-                            <Badge badgeContent={msg} color="primary">
+                            <Badge badgeContent={0 | msg} color="primary">
                                 <ForumOutlined style={{ color: 'orange' }} />
                             </Badge>
                         </ListItemIcon>

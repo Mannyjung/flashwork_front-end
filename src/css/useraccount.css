@@ -3,9 +3,12 @@
     margin-left: 2%; */
     
     align-content: center;
- 
+    width: 250px;
+    height: 250px;
+    /* float: center; */
+    border-radius: 50%;
+    /* margin-left: 8rem; */
 }
-
 
 .imgaccwork{
     width: 100%;

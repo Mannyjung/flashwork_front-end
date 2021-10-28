@@ -6,7 +6,7 @@ import '../../css/modal.css'
 import Api from '../../api/Api';
 const ModalPacks = (props) => {
     const {
-        buttonLabel = "เพิ่มแพ็คเก็จ",
+        buttonLabel = "เพิ่มแพ็กเกจ",
     } = props;
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
@@ -30,7 +30,7 @@ const ModalPacks = (props) => {
             return false;
         }
         if (!newpackage.pk_detail) {
-            err = "กรุณากรอกรายละเอียดแพ็คเก็จ"
+            err = "กรุณากรอกรายละเอียดแพ็กเกจ"
             document.getElementById('chk-pk_detail').innerHTML = err;
             return false;
         }
@@ -74,10 +74,10 @@ const ModalPacks = (props) => {
                 </div>
             </Container>
             <Modal isOpen={modal} toggle={toggle} className="fixmodal">
-                <ModalHeader toggle={toggle}>เพิ่มแพ็คเก็จ</ModalHeader>
+                <ModalHeader toggle={toggle}>เพิ่มแพ็กเกจ</ModalHeader>
                 <ModalBody>
                     <Container>
-                        <Label>ชื่อแพ็คเก็จ</Label>
+                        <Label>ชื่อแพ็กเกจ</Label>
                         <Input
                             type="text"
                             name="pk_name"

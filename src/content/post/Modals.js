@@ -29,7 +29,7 @@ const Modals = (props) => {
             return false;
         }
         if (!showPackagebyid.pk_detail) {
-            err = "กรุณากรอกรายละเอียดแพ็คเก็จ"
+            err = "กรุณากรอกรายละเอียดแพ็กเกจ"
             document.getElementById('chk-pk_detail').innerHTML = err;
             return false;
         }
@@ -64,10 +64,10 @@ const Modals = (props) => {
         <div>
             <Button color="success" onClick={toggle} size="sm">{buttonLabel}</Button>
             <Modal isOpen={modal} toggle={toggle} className="fixmodal">
-                <ModalHeader toggle={toggle}>แก้ไข Package</ModalHeader>
+                <ModalHeader toggle={toggle}>แก้ไขแพ็กเกจ</ModalHeader>
                 <ModalBody>
                     <Container>
-                        <Label>ชื่อแพ็คเก็จ</Label>
+                        <Label>ชื่อแพ็กเกจ</Label>
                         <Input
                             type="text"
                             name="pk_name"

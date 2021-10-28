@@ -83,7 +83,7 @@ const Mypost = () => {
                                                 </DropdownToggle>
                                                 <DropdownMenu>
                                                     <DropdownItem divider />
-                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็คเก็จ</DropdownItem>
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็กเกจ</DropdownItem>
                                                     <DropdownItem divider />
                                                     <DropdownItem style={{ fontSize: "16px" }} href={"/myphotos/" + myposts.aw_id}>รูปภาพ</DropdownItem>
                                                     <DropdownItem divider />
@@ -177,7 +177,7 @@ const Mypost = () => {
                                                 </DropdownToggle>
                                                 <DropdownMenu>
                                                     <DropdownItem divider />
-                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็คเก็จ</DropdownItem>
+                                                    <DropdownItem style={{ fontSize: "16px" }} href={"/mypackage/" + myposts.aw_id}>แพ็กเกจ</DropdownItem>
                                                     <DropdownItem divider />
                                                     <DropdownItem style={{ fontSize: "16px" }} href={"/myphotos/" + myposts.aw_id}>รูปภาพ</DropdownItem>
                                                     <DropdownItem divider />
